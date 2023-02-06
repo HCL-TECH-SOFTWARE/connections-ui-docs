@@ -36,7 +36,6 @@ The following JSON snippet can be used to add Microsoft Teams as a share option:
             "name": "connections-tours-config",
             "type": "com.hcl.connections.tours",
             "payload": {
-                "open": true,
                 "disabled": false,
                 "cacheExpiration": 86400000,
                 "skipCacheExpiration": 86400000
@@ -50,7 +49,7 @@ The following JSON snippet can be used to add Microsoft Teams as a share option:
 
 ### Properties
 
-The properties `open` and `disabled` control whether the tour should be loaded on the page and should open up for users. To show the tour to users ensure that you set `open` to `true` and `disabled` to `false` like in the above example.
+The property `disabled` controls whether the tour should be loaded on the page and should open up for users.
 
 The `cacheExpiration` value steers how long the configuration should be stored on the client side, in ms.
 
