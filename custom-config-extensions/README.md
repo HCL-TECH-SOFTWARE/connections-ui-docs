@@ -15,13 +15,39 @@ Currently, the following components leverage extensible configuration to allow f
 - ### [Custom Styles](../custom-styles/README.md#custom-config-extension)
   - The custom styles component injects CSS properties into the UI which other components adhere to. This allows exposing custom colors or sizes for different elements in a generic fashion.
 
-**Note:** - The custom config extensions do not replace already existing customization options but instead provide a different angle of applying them. Due to the nature of implementation for some components, already existing customizations may not be supported anymore in the new Connections 8 UI (e.g. custom menu options in the Connections header). 
-
-You can find a list of areas to be aware of or to consider migrating in the section [Impact on Legacy Customizations](../impact-on-legacy-customizations).
+**Note:** - The custom config extensions do not replace already existing customization options but instead provide a different angle of applying them. Due to the nature of implementation for some components, already existing customizations may not be supported anymore in the new Connections 8 UI (e.g. custom menu options in the Connections header). You can find a list of areas to be aware of or to consider migrating in the section [Impact on Legacy Customizations](../impact-on-legacy-customizations).
 
 ## Creating Config Extensions
 
 ### App Registry 
+
+#### Enabling Connections to use the app registry service
+
+By default, Connections applications do not try to make requests to the app registry service to avoid unnecessary requests if the app registry service has not been deployed as part of a Component Pack installation.
+
+Apply the following steps to enable the app registry service:
+
+1. Locate the `WAS_HOME\profiles\WAS_Profile\config\cells\Host_name\LotusConnections-config\LotusConnections-config.xml` file.
+
+2. Locate the `sloc:serviceReference` section where `serviceName="extensionRegistry"` in the file.
+
+3. Check that both the `enabled` and `ssl_enabled` properties are set to `true`.
+
+4. If they are not set to `true`, update the configuration file so the section looks as follows (admin\_replace should be replaced with the appropriate server domain):
+
+```
+<sloc:serviceReference bootstrapHost="admin\_replace" bootstrapPort="admin\_replace" clusterName="" enabled="true" serviceName="extensionRegistry" ssl_enabled="true">
+  <sloc:href>
+    <sloc:hrefPathPrefix>/appregistry</sloc:hrefPathPrefix>
+    <sloc:static href="admin\_replace" ssl_href="admin\_replace"/>
+    <sloc:interService href="admin\_replace"/>
+  </sloc:href>
+</sloc:serviceReference>
+```
+
+5. If you made changes, sync them and restart the server.
+
+#### Example - Applying a green theme to the CNX UI
 
 To create a custom config extension, log in to your HCL Connections environment as an administrative user and navigate the the URL `https://__CONNECTIONS_DOMAIN__/appreg/apps`.
 
