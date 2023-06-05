@@ -20,7 +20,7 @@ The custom styles use the extension type `com.hcl.connections.tours`.
 
 ### Example
 
-The following JSON snippet can be used to add Microsoft Teams as a share option:
+The following JSON snippet can be used to adjust the welcome tour behavior:
 
 ```
 {

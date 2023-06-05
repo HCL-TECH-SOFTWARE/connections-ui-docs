@@ -57,4 +57,4 @@ The `location` and `order` properties are used to define in which position withi
 
 The `link` property is used for the navigation target the entry should forward to. The `icon` property allows to provide an image source, which can be either a link to a static image or inline image, e.g. an encoded svg data object.
 
-Lastly, the `submenu` property is used for adding an additional menu with more options. The configuration expects the entries within the submenu to be provided as a list. See the `more` element in the default entries as an example.
+Lastly, the `submenu` property is used for adding an additional menu with more options. The configuration expects the entries within the submenu to be provided as a list. See the `more` element in the default entries as an example. `submenu`s are only recognized and applied in the `main` area.
