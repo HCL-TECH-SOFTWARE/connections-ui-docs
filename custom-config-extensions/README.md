@@ -148,3 +148,38 @@ This means that this property needs to be injected into the HCL Connections page
 As in the above code example, this object is expected to contain all config extensions that should be available. 
 
 The JavaScript object can also serve as a baseline but can be oversteered through existing App Registry extensions. For this, you can leverage the property `preferAppReg: true`.
+
+
+#### Example using JSP customization
+
+ 
+To add the previous window.connectionsExtension sample for an existing JSP customization file, complete the following steps:
+
+1. Make a copy of the `header.jsp` file, which defines the content of the main navigation bar. You can access the file from the following directory:
+   `<Application root>/installedApps/<cell name>/Profiles.ear/lc.profiles.app.war/nav/templates`
+2. Paste the copy of the `header.jsp` file into the following directory: `customizationDir/common/nav/templates`
+3. Open the copy of the `header.jsp` file in a text editor and look for the following section:
+
+```
+<%@ include file="/nav/templates/cnx8-react.jspf" %>
+```
+
+4. Add the following Javascript code just before that line:
+
+```
+<script type="text/javascript">
+window.connectionsExtension = {
+  "com.hcl.connections.custom.style": {
+    "style-customization": {
+      "generic": {
+        "--color-header": "#2c4433",
+        "--color-navigation": "#366032",
+        "--color-navigation-selected": "#609c5a"
+      },
+    }
+  }
+}
+</script>
+```
+ 
+5. After making your updates, save and close the copy of the header.jsp file. Restart your application server.
