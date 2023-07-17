@@ -66,7 +66,7 @@ Entries can optionally define properties which validate the role of the user and
 Roles property names
 
 - `forbiddenRoles` - Only display the navigation entry if the user does not contain any of the supplied roles. This property is commonly used with the value of `external`, which would only show the menu entry for internal users.
-- `requiredRoles` -  Only display the navigation entry if the user contains all of the supplied roles. For example, a required role of `global-moderator` is used to display the Moderation entry on systems where the Moderation application is enabled.
+- `requiredRoles` -  Only display the navigation entry if the user has any of the supplied roles. For example, a required role of `global-moderator` is used to display the Moderation entry on systems where the Moderation application is enabled.
 
 Special role values
 
@@ -80,7 +80,7 @@ The following property values do not reflect true application security roles, bu
 
 ### Roles Example
 
-Extending the above example to require that the intranet application entry is only displayed for internal users.
+Extending the above example to require that the intranet application entry is never displayed for external users.
 
 ```
 {
@@ -95,7 +95,28 @@ Extending the above example to require that the intranet application entry is on
             "new_window": true,
             "submenu": [],
             "location": "main",
-            "requiredRoles": "internal"
+            "forbiddenRoles": "external"
+        }
+    ]
+}
+```
+
+Another example which would only display an entry for users with the `admin` role. 
+
+```
+{
+    "customEntries": [
+        {
+            "id": "adminapp",
+            "name": "adminapp",
+            "action": "add",
+            "link": "https://customer.com/adminapp",
+            "icon": "https://customer.com/images/adminlogo.png",
+            "order": 7000,
+            "new_window": true,
+            "submenu": [],
+            "location": "main",
+            "requiredRoles": "admin"
         }
     ]
 }
