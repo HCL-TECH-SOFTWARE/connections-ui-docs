@@ -95,7 +95,7 @@ Extending the above example to require that the intranet application entry is ne
             "new_window": true,
             "submenu": [],
             "location": "main",
-            "forbiddenRoles": "external"
+            "forbiddenRoles": ["external"]
         }
     ]
 }
@@ -116,7 +116,7 @@ Another example which would only display an entry for users with the `admin` rol
             "new_window": true,
             "submenu": [],
             "location": "main",
-            "requiredRoles": "admin"
+            "requiredRoles": ["admin"]
         }
     ]
 }
