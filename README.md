@@ -1,5 +1,7 @@
 # Connections Components - Documentation
 
+**The HCL Connections documentation has been updated to include the information in this repository for customizing the Connections 8.0 user interface (UI). Please refer to the help topic [Customizing the user interface](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/customize/t_admin_common_customize_main.html) for details. To share information or ask questions on customizing the user interface, refer to the [Connections community forum](https://support.hcltechsw.com/community?id=community_forum&sys_id=f2165d261b3dbf00c48197d58d4bcbb8).**
+
 This git repository contains details and descriptions on the Connections UI components and styles for customizing them.
 
 It serves as a baseline for developers to understand how common areas within the UI/UX should be understood and designed. The primary purpose is to achieve consistency across the various applications and features that Connections provides.
